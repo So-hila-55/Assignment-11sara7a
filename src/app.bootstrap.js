@@ -4,6 +4,7 @@ import express from "express"
 import { connectionDB } from "./DB/connection.mongo.js"
 import { redisConnection } from "./DB/redis/connection.redis.js"
 import userRouter from "./modules/users/user.controller.js"
+import messageRouter from "./modules/messages/message.controller.js"
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -20,6 +21,7 @@ const bootstrap = async () => {
     )
 
     app.use("/users", userRouter)
+    app.use("/messages", messageRouter)
    
 
     
